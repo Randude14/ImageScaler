@@ -1,17 +1,48 @@
 package com.randude14.imagescaler;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ImageScaler {
 
-	public static void main(String[] args) throws IOException {		
+	public static void main(String[] args) throws Exception {		
+		
+		final JFrame frame = new JFrame("Test frame");
+		
+		JButton button = new JButton("Test Button");
+		button.setEnabled(true);
+		button.addActionListener((ActionEvent e) -> {
+			
+			System.out.println("Test");
+			
+		});
+		
+		for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+	        if ("Windows".equals(info.getName())) {
+	            UIManager.setLookAndFeel(info.getClassName());
+	            System.out.println(info.getName());
+	            break;
+	        }
+	    }
+		
+		frame.setSize(800, 600);
+		frame.setLocationRelativeTo(null);
+		frame.add(button, BorderLayout.NORTH);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		/*
 		 * Old code from my program
