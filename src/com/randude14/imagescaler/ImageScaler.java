@@ -12,35 +12,19 @@ import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import com.randude14.imagescaler.gui.ImageScalerFrame;
 
 public class ImageScaler {
 
 	public static void main(String[] args) throws Exception {		
 		
-		final JFrame frame = new JFrame("Test frame");
+		final ImageScalerFrame frame = new ImageScalerFrame("Test frame", 800, 600);
 		
-		JButton button = new JButton("Test Button");
-		button.setEnabled(true);
-		button.addActionListener((ActionEvent e) -> {
-			
-			System.out.println("Test");
-			
-		});
+		//TODO: write GUI
 		
-		for(UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-	        if ("Windows".equals(info.getName())) {
-	            UIManager.setLookAndFeel(info.getClassName());
-	            System.out.println(info.getName());
-	            break;
-	        }
-	    }
-		
-		frame.setSize(800, 600);
 		frame.setLocationRelativeTo(null);
-		frame.add(button, BorderLayout.NORTH);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
